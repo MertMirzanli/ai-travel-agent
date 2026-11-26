@@ -46,6 +46,7 @@ else:
                     st.session_state.destination = destination.strip()
                 except Exception as exc:
                     st.error(f"Could not generate the plan: {exc}")
+                    st.info("Check your API key, model access, and Gemini usage quota.")
 
     if st.session_state.get("plan"):
         st.divider()
