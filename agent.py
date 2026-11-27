@@ -39,7 +39,7 @@ def generate_travel_plan(destination: str, days: int, budget: float,
     if not os.getenv("GOOGLE_API_KEY"):
         raise RuntimeError("GOOGLE_API_KEY is missing. Add it to a local .env file.")
 
-    model = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
+    model = os.getenv("GEMINI_MODEL", "gemini-3.5-flash-lite")
     llm = ChatGoogleGenerativeAI(model=model, temperature=0.5)
     llm_with_tools = llm.bind_tools([calculate_travel_budget])
     messages = [
